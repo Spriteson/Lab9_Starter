@@ -157,20 +157,20 @@
           throw new Error('Global Error');
         }
       });
-      function isNum(input){
-        if(!isNaN(input)){
-          return input;
-        }
-        else{
-          throw new ValidationError("Invalid Character in Calculator");
-        }
-      }
       function checkInput(firstNum, secondNum){
         try{
           isNum(firstNum);
           isNum(secondtNum);
         } catch(err) {
           console.error(err);
+        }
+      }
+      function isNum(input){
+        if(!isNaN(input)){
+          return input;
+        }
+        else{
+          throw new ValidationError("Invalid Character in Calculator");
         }
       }
       class ValidationError extends Error {
