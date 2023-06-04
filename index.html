@@ -94,9 +94,7 @@
       let output = document.querySelector('output');
       const firstNum = document.querySelector('#first-num').value;
       const secondNum = document.querySelector('#second-num').value;
-      checkInput(firstNum, secondNum);
       let operator = document.querySelector('#operator').value;
-
       output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
     });
 
@@ -159,10 +157,9 @@
           throw new Error('Global Error');
         }
       });
-      function checkInput(firstNum, secondNum){
+      function checkInput(num){
         try{
-          isNum(firstNum);
-          isNum(secondtNum);
+          isNum(num);
         } catch(err) {
           console.error(err);
         }
@@ -172,7 +169,7 @@
           return input;
         }
         else{
-          throw new ValidationError("Invalid Character in Calculator");
+          throw new ValidationError("Invalid Character");
         }
       }
       class ValidationError extends Error {
@@ -181,6 +178,7 @@
           this.name = "ValidationError";
         }
       }
+      checkInput("m");
       window.onerror = (event, source, lineno, colno, error) => {
         console.log("window error");
       };
