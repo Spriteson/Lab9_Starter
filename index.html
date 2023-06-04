@@ -94,7 +94,9 @@
       let output = document.querySelector('output');
       const firstNum = document.querySelector('#first-num').value;
       const secondNum = document.querySelector('#second-num').value;
+      checkInput(firstNum, secondNum);
       let operator = document.querySelector('#operator').value;
+
       output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
     });
 
@@ -179,9 +181,9 @@
           this.name = "ValidationError";
         }
       }
-      /*window.onerror = (event, source, lineno, colno, error) => {
-        console.log("error");
-      };*/
+      window.onerror = (event, source, lineno, colno, error) => {
+        console.log("window error");
+      };
     }
   </script>
 </body>
