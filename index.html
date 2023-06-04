@@ -95,7 +95,7 @@
       const firstNum = document.querySelector('#first-num').value;
       const secondNum = document.querySelector('#second-num').value;
       let operator = document.querySelector('#operator').value;
-      output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+      output.innerHTML = checkInput(firstNum,operator,secondNum);
     });
 
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
@@ -157,9 +157,11 @@
           throw new Error('Global Error');
         }
       });
-      function checkInput(num){
+      function checkInput(num1, oper,  num2){
         try{
-          isNum(num);
+          isNum(num1);
+          isNum(num2);
+          return eval(`${num1} ${oper} ${nu2}`)
         } catch(err) {
           console.error(err);
         }
@@ -178,7 +180,6 @@
           this.name = "ValidationError";
         }
       }
-      checkInput("m");
       window.onerror = (event, source, lineno, colno, error) => {
         console.log("window error");
       };
